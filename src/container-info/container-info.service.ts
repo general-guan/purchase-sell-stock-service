@@ -14,11 +14,7 @@ export class ContainerInfoService {
   /**
    * 获取进货箱信息
    */
-  async containerInfoList(): Promise<{
-    code: number;
-    data: any;
-    message: string;
-  }> {
+  async containerInfoList() {
     const tempData = await this.containerInfoRepository
       .createQueryBuilder('container-info')
       .getMany();
@@ -30,24 +26,18 @@ export class ContainerInfoService {
     });
 
     return {
-      code: 200,
       data,
-      message: null,
     };
   }
 
   /**
    * 新增进货箱信息
    */
-  async containerInfoAdd(
-    post,
-  ): Promise<{ code: number; data: any; message: string }> {
+  async containerInfoAdd(post) {
     post.purchaseDate = new Date(post.purchaseDate);
     post.storageDate = new Date(post.storageDate);
     await this.containerInfoRepository.save(post);
     return {
-      code: 200,
-      data: null,
       message: '新增进货箱信息成功！',
     };
   }
@@ -63,8 +53,6 @@ export class ContainerInfoService {
     });
     await this.containerInfoRepository.remove(containerInfoRemove);
     return {
-      code: 200,
-      data: null,
       message: '删除进货箱信息成功！',
     };
   }
