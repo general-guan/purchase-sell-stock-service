@@ -11,11 +11,11 @@ export class ContainerInfoEntity {
   @Column()
   purchaseStaff: string;
 
-  @Column({ type: 'bigint' })
-  purchaseDate: number;
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  purchaseDate: string;
 
-  @Column({ type: 'bigint' })
-  storageDate: number;
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  storageDate: string;
 
   @Column()
   specifications: number;

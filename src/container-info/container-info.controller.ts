@@ -6,8 +6,8 @@ export class ContainerInfoController {
   constructor(private readonly containerInfoService: ContainerInfoService) {}
 
   @Post('list')
-  containerInfoList(@Body() post) {
-    return this.containerInfoService.containerInfoList(post);
+  containerInfoList() {
+    return this.containerInfoService.containerInfoList();
   }
 
   @Post('add')

@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ContainerInfoEntity } from './container-info.entity';
+import * as dayjs from 'dayjs';
 
 @Injectable()
 export class ContainerInfoService {
@@ -18,9 +19,15 @@ export class ContainerInfoService {
     data: any;
     message: string;
   }> {
-    const data = await this.containerInfoRepository
+    const tempData = await this.containerInfoRepository
       .createQueryBuilder('container-info')
       .getMany();
+
+    const data = tempData.map((m) => {
+      m.purchaseDate = dayjs(m.purchaseDate).format('YYYY-MM-DD HH:mm:ss');
+      m.storageDate = dayjs(m.storageDate).format('YYYY-MM-DD HH:mm:ss');
+      return { ...m };
+    });
 
     return {
       code: 200,
@@ -35,6 +42,8 @@ export class ContainerInfoService {
   async containerInfoAdd(
     post,
   ): Promise<{ code: number; data: any; message: string }> {
+    post.purchaseDate = new Date(post.purchaseDate);
+    post.storageDate = new Date(post.storageDate);
     await this.containerInfoRepository.save(post);
     return {
       code: 200,

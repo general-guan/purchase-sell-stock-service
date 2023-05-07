@@ -14,6 +14,7 @@ specifiers:
   '@types/supertest': ^2.0.11
   '@typescript-eslint/eslint-plugin': ^5.0.0
   '@typescript-eslint/parser': ^5.0.0
+  dayjs: ^1.11.7
   eslint: ^8.0.1
   eslint-config-prettier: ^8.3.0
   eslint-plugin-prettier: ^4.0.0
@@ -36,6 +37,7 @@ dependencies:
   '@nestjs/core': 9.4.0_s52inwjga72fw7w7ilq4rk5hru
   '@nestjs/platform-express': 9.4.0_gqkob5jndcfeb3wjw72wbdwyne
   '@nestjs/typeorm': 9.0.1_5jgqalkub5zb475ngukfuhbndu
+  dayjs: 1.11.7
   mysql2: 3.2.4
   reflect-metadata: 0.1.13
   rxjs: 7.8.1
@@ -2139,6 +2141,10 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
     dev: true
+
+  /dayjs/1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
+    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
