@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { WarehouseInfoEntity } from '../warehouse-info/warehouse-info.entity';
 
 @Entity('container_info')
 export class ContainerInfoEntity {
@@ -19,4 +20,10 @@ export class ContainerInfoEntity {
 
   @Column()
   specifications: number;
+
+  @ManyToOne(
+    () => WarehouseInfoEntity,
+    (warehouseInfo) => warehouseInfo.containerInfo,
+  )
+  warehouseInfo: WarehouseInfoEntity;
 }

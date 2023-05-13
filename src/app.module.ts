@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ContainerInfoModule } from './container-info/container-info.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { WarehouseInfoModule } from './warehouse-info/warehouse-info.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,
     }),
     ContainerInfoModule,
+    WarehouseInfoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
