@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ContainerInfoModule } from './container-info/container-info.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { WarehouseInfoModule } from './warehouse-info/warehouse-info.module';
+import { ProductInfoModule } from './product-info/product-info.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { WarehouseInfoModule } from './warehouse-info/warehouse-info.module';
     }),
     ContainerInfoModule,
     WarehouseInfoModule,
+    ProductInfoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
