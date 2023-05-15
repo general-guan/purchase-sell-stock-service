@@ -1,5 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 import { WarehouseInfoEntity } from '../warehouse-info/warehouse-info.entity';
+import { ProductInfoEntity } from '../product-info/product-info.entity';
 
 @Entity('container_info')
 export class ContainerInfoEntity {
@@ -20,6 +27,12 @@ export class ContainerInfoEntity {
 
   @Column()
   specifications: number;
+
+  @OneToMany(
+    () => ProductInfoEntity,
+    (productInfo) => productInfo.containerInfo,
+  )
+  productInfo: ProductInfoEntity[];
 
   @ManyToOne(
     () => WarehouseInfoEntity,
